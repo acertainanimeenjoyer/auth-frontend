@@ -1,15 +1,19 @@
+// src/App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+
+import Navbar from './components/Navbar';            // ✅ add this
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import Home from './pages/Home';
+import Home from './pages/Home';                     // make sure this file exists
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
+        <Navbar />                                    {/* ✅ render it here */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
